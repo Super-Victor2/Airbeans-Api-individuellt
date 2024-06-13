@@ -26,14 +26,14 @@ router.post('/', authenticateUser, isAdmin, async (req, res) => {
             res.status(201).json(newDoc);
         } catch (error) {
             res.status(500).send(error);
-        }
+        } 
     } else {
         res.status(400).send('New menu item could not be created, missing requirement.');
     }
 });
 
 // Make special offer
-router.post('/', authenticateUser, isAdmin, async (req, res) => {
+router.post('/offer', authenticateUser, isAdmin, async (req, res) => {
   try {
       const cappuccino = await db.findOne({ title: 'Cappuccino' });
       const cortado = await db.findOne({ title: 'Cortado' });
@@ -69,7 +69,7 @@ router.put('/menu/:id', authenticateUser, isAdmin, async (req, res) => {
 
 // Remove menu item
 router.delete('/menu/:id', authenticateUser, isAdmin, async (req, res) => {
-    const id = parseInt(req.params.id, 10);
+    const id = parseInt(req.params.id);
     try {
         const numRemoved = await db.remove({ id });
         if (numRemoved === 0) return res.status(404).send('Menu item not found');
