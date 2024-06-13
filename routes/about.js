@@ -6,7 +6,6 @@ const router = Router()
 router.get('/',async(req,res)=>{
     const about = await showAbout()
     res.json({about : about})
-
 })
 
 
