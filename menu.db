@@ -3,5 +3,6 @@
 {"id":4,"title":"Latte Macchiato","desc":"Bryggd på månadens bönor.","price":49,"_id":"EXEuz1Qmn4UROcRH"}
 {"id":5,"title":"Kaffe Latte","desc":"Bryggd på månadens bönor.","price":54,"_id":"Y3wquj5GQJrmMGvy"}
 {"id":6,"title":"Cortado","desc":"Bryggd på månadens bönor.","price":39,"_id":"goaRyLp4txTOAvER"}
+{"id":5,"title":"Bob Kaffe","desc":"Bryggare bob","price":20,"createdAt":{"$$date":1718286560622},"_id":"hbJBOddsYdkkFQs5"}
 {"id":5,"title":"Bob Kaffe","desc":"Bryggare bob","price":20,"createdAt":{"$$date":1718284464785},"_id":"lAVAFTTzl9MHomRV"}
 {"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39,"_id":"sqfecu98tPAu1rmQ"}

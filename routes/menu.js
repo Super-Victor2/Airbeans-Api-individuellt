@@ -51,18 +51,20 @@ router.post('/', authenticateUser, isAdmin, async (req, res) => {
 
 // Update a menu item
 router.put('/menu/:id', authenticateUser, isAdmin, async (req, res) => {
-    const id = parseInt(req.params.id, 10);
-    const updatedMenuItem = req.body;
+  const id = parseInt(req.params.id);
+  const updatedMenuItem = req.body;
 
-    try {
-        const numReplaced = await db.update({ id }, { $set: updatedMenuItem });
-        if (numReplaced === 0) return res.status(404).send('Menu item not found');
-        
-        const updatedDoc = await db.findOne({ id });
-        res.json(updatedDoc);
-    } catch (error) {
-        res.status(500).send(error);
-    }
+  try {
+      const numUpdated = await db.update({ id }, { $set: updatedMenuItem });
+      if (numUpdated === 0) {
+          return res.status(404).send('Menu item not found');
+      }
+      
+      updatedMenuItem.modifiedAt = new Date();
+      res.json(updatedMenuItem);
+  } catch (error) {
+      res.status(500).send(error);
+  }
 });
 
 // Remove menu item
